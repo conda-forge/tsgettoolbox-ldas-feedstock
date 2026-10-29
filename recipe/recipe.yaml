@@ -1,13 +1,13 @@
 context:
-  version: 27.0.0
+  version: "27.1.0"
 
 package:
   name: tsgettoolbox-ldas
   version: ${{ version }}
 
 source:
-- url: https://files.pythonhosted.org/packages/source/t/tsgettoolbox-ldas/tsgettoolbox_ldas-${{ version }}.tar.gz
-  sha256: 8a28fd93a82be7d57352512501ff3c8738c0065c6547a0965c866f17e5a9e11b
+  - url: https://files.pythonhosted.org/packages/source/t/tsgettoolbox-ldas/tsgettoolbox_ldas-${{ version }}.tar.gz
+    sha256: 685ad2f262d1761d42e51e48d13d9a22d22f76c3137c16ae0aecaafc059ef5b5
 
 build:
   number: 0
@@ -16,27 +16,27 @@ build:
 
 requirements:
   host:
-  - python ${{ python_min }}.*
-  - setuptools >=80
-  - pip
+    - python ${{ python_min }}.*
+    - setuptools >=80
+    - pip
   run:
-  - python >=${{ python_min }}
-  - aiodns >3.6.0
-  - async_retriever
-  - pandas
-  - pydantic >=2
-  - requests
-  - tabulate
-  - tsgettoolbox >=27.0.0
+    - python >=${{ python_min }}
+    - aiodns >3.6.0
+    - async_retriever
+    - pandas
+    - pydantic >=2
+    - requests
+    - tabulate
+    - tsgettoolbox >=27.0.0
 
 tests:
-- python:
-    imports:
-      - tsgettoolbox_ldas
-    pip_check: true
-    python_version:
-      - ${{ python_min }}.*
-      - "*"
+  - python:
+      imports:
+        - tsgettoolbox_ldas
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
 
 about:
   summary: Plugin for tsgettoolbox to retrieve data from the Land Data Assimmilation System (LDAS) web service.
